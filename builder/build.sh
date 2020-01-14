@@ -9,7 +9,7 @@ mkdir -p /home/builder/.cmake/packages/mapserver/
 
 cmake /src \
       -GNinja \
-      -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_BUILD_TYPE=Debug \
       -DCMAKE_INSTALL_PREFIX=/usr/local \
       -DWITH_CLIENT_WMS=1 \
       -DWITH_CLIENT_WFS=1 \

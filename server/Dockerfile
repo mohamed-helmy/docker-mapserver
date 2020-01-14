@@ -18,7 +18,7 @@ ENV APACHE_CONFDIR=/etc/apache2 \
 RUN apt-get update && \
     apt-get install --assume-yes --no-install-recommends ca-certificates apache2 libapache2-mod-fcgid curl \
         libfribidi0 librsvg2-2 libpq5 libpng16-16 libjpeg8 libgif7 libgeos-c1v5 libfcgi0ldbl libgdal20 \
-        libxslt1.1 libprotobuf-c1 libcap2-bin && \
+        libxslt1.1 libprotobuf-c1 libcap2-bin gdb && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     echo 'Allow apache2 to bind to port <1024 for any user' && \

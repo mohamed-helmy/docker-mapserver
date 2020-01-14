@@ -18,7 +18,7 @@ ENV APACHE_CONFDIR=/etc/apache2 \
 RUN apt-get update && \
     apt-get install --assume-yes --no-install-recommends ca-certificates apache2 libapache2-mod-fcgid curl \
         libfribidi0 librsvg2-2 libpq5 libpng16-16 libjpeg8 libgif7 libgeos-c1v5 libfcgi0ldbl libgdal20 \
-        libxslt1.1 libprotobuf-c1 libcap2-bin gdb && \
+        libxslt1.1 libprotobuf-c1 libcap2-bin gdb git && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     echo 'Allow apache2 to bind to port <1024 for any user' && \
@@ -38,6 +38,8 @@ RUN a2enmod fcgid headers status && \
     echo 'ErrorLogFormat "%{X-Request-Id}i [%l] [pid %P] %M"' >> /etc/apache2/apache2.conf && \
     chmod a+rx /bin/confd && \
     mkdir --parent /etc/confd/conf.d /etc/confd/templates /etc/mapserver /docker-entrypoint.d
+
+RUN git clone -d branch-7-2 https://github.com/mapserver/mapserver.git /src
 
 # Be able to install font as nonroot
 RUN chmod u+s /usr/bin/fc-cache

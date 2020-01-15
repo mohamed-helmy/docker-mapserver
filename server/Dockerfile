@@ -39,7 +39,7 @@ RUN a2enmod fcgid headers status && \
     chmod a+rx /bin/confd && \
     mkdir --parent /etc/confd/conf.d /etc/confd/templates /etc/mapserver /docker-entrypoint.d
 
-RUN git clone -d branch-7-2 https://github.com/mapserver/mapserver.git /src
+RUN git clone -b branch-7-2 https://github.com/mapserver/mapserver.git /src
 
 # Be able to install font as nonroot
 RUN chmod u+s /usr/bin/fc-cache
